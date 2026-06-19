@@ -1,0 +1,10 @@
+{
+    "name": "vedangi-portfolio",
+  "version": "1.0.0",
+  "description": "Personal portfolio website for Vedangi Patel",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  }
+}
