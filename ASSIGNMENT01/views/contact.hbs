@@ -6,3 +6,91 @@
     <p class="page-subtitle">Have a question or want to work together? I'd love to hear from you.</p>
   </div>
 </section>
+
+<!-- CONTACT SECTION -->
+<section class="contact-section py-5">
+  <div class="container">
+    <div class="row g-5 justify-content-center">
+
+      <!-- Contact Info -->
+      <div class="col-lg-4">
+        <div class="contact-info">
+          <h3 class="contact-info__title">Get In Touch</h3>
+          <p class="contact-info__desc">
+            Whether you have a question, a project idea, or just want to say hi — feel free to reach out.
+          </p>
+          <div class="contact-detail">
+            <div class="contact-detail__icon"><i class="fas fa-envelope"></i></div>
+            <div>
+              <span class="contact-detail__label">Email</span>
+              <a href="mailto:vedangi10.patel@gmail.com" class="contact-detail__value">vedangi10.patel@gmail.com</a>
+            </div>
+          </div>
+          <div class="contact-detail">
+            <div class="contact-detail__icon"><i class="fas fa-map-marker-alt"></i></div>
+            <div>
+              <span class="contact-detail__label">Location</span>
+              <span class="contact-detail__value">Barrie, Ontario, Canada</span>
+            </div>
+          </div>
+          <div class="contact-detail">
+            <div class="contact-detail__icon"><i class="fas fa-graduation-cap"></i></div>
+            <div>
+              <span class="contact-detail__label">College</span>
+              <span class="contact-detail__value">Georgian College</span>
+            </div>
+          </div>
+          <div class="contact-social mt-4">
+            <a href="https://github.com/VedangiPatel10" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+              <i class="fab fa-github"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/vedangi-patel-793954344/www.linkedin.com/in/vedangi-patel-793954344" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Contact Form -->
+      <div class="col-lg-6">
+        {{#if success}}
+        <div class="success-message" role="alert">
+          <i class="fas fa-check-circle"></i>
+          <div>
+            <strong>Message sent!</strong>
+            <p class="mb-0">Thanks {{senderName}}, I'll get back to you soon.</p>
+          </div>
+        </div>
+        {{/if}}
+        <div class="contact-form-card">
+          <form action="/contact" method="POST" novalidate>
+            <div class="mb-4">
+              <label for="name" class="form-label">Name <span class="required">*</span></label>
+              <input type="text" class="form-control custom-input" id="name" name="name"
+                placeholder="Vedangi Patel" required autocomplete="name" />
+            </div>
+            <div class="mb-4">
+              <label for="email" class="form-label">Email Address <span class="required">*</span></label>
+              <input type="email" class="form-control custom-input" id="email" name="email"
+                placeholder="vedangi10.patel@gmail.com" required autocomplete="email" />
+            </div>
+            <div class="mb-4">
+              <label for="subject" class="form-label">Subject</label>
+              <input type="text" class="form-control custom-input" id="subject" name="subject"
+                placeholder="What's this about?" />
+            </div>
+            <div class="mb-4">
+              <label for="message" class="form-label">Message <span class="required">*</span></label>
+              <textarea class="form-control custom-input" id="message" name="message"
+                rows="5" placeholder="Tell me about your project or question..." required></textarea>
+            </div>
+            <button type="submit" class="btn btn-gold w-100">
+              <i class="fas fa-paper-plane me-2"></i> Send Message
+            </button>
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
