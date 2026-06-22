@@ -6,3 +6,7 @@ prompt.delimiter = "";
 
 // Start prompt
 prompt.start();
+
+
+// Ask user for their selection 
+prompt.get([]);
