@@ -22,5 +22,16 @@ prompt.get([
       message: "Please enter ROCK, PAPER, or SCISSORS",
     },
 ],
-
+ function (err, result) {
+    if (err) {
+      console.log("\nExiting game. Goodbye!");
+      process.exit(0);
+    }
+ 
+    // Store user selection (uppercase for consistency)
+    const userSelection = result.userSelection.toUpperCase();
+ 
+    // Generate computer selection using Math.random()
+    const randomNum = Math.random();
+    let computerSelection;}
 );
