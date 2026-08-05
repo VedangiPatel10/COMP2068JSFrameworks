@@ -1,0 +1,78 @@
+/* Custom CSS for Coffee Shop Website */
+
+:root {
+  --coffee-dark: #4b3621;
+  --coffee-mid: #7b5b41;
+  --coffee-cream: #f5ead6;
+  --coffee-accent: #c8894f;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: var(--coffee-cream);
+  color: var(--coffee-dark);
+}
+
+.brand-nav {
+  background-color: var(--coffee-dark) !important;
+}
+
+.brand-nav .navbar-brand {
+  font-weight: 700;
+  font-size: 1.4rem;
+}
+
+.hero {
+  background: linear-gradient(135deg, var(--coffee-mid), var(--coffee-dark));
+  color: white;
+}
+
+.brand-btn {
+  background-color: var(--coffee-accent);
+  border-color: var(--coffee-accent);
+  color: white;
+  font-weight: 600;
+}
+.brand-btn:hover {
+  background-color: var(--coffee-dark);
+  border-color: var(--coffee-dark);
+  color: white;
+}
+
+.brand-btn-outline {
+  border: 2px solid var(--coffee-accent);
+  color: var(--coffee-accent);
+  font-weight: 600;
+  background: transparent;
+}
+.brand-btn-outline:hover {
+  background-color: var(--coffee-accent);
+  color: white;
+}
+
+.menu-card {
+  border: none;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 14px rgba(75, 54, 33, 0.12);
+  transition: transform 0.15s ease;
+}
+.menu-card:hover {
+  transform: translateY(-4px);
+}
+.menu-card img {
+  height: 180px;
+  object-fit: cover;
+}
+
+.brand-footer {
+  background-color: var(--coffee-dark);
+  color: var(--coffee-cream);
+}
+
+.status-Pending { background-color: #6c757d; }
+.status-Preparing { background-color: #fd7e14; }
+.status-Ready { background-color: #198754; }
+.status-Completed { background-color: #0d6efd; }
+.status-Cancelled { background-color: #dc3545; }
+.badge { color: white; }
