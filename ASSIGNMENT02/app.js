@@ -31,3 +31,25 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(methodOverride("_method")); // lets HTML forms send PUT/DELETE
 app.use(express.static(path.join(__dirname, "public")));
+
+// Session, Passport, and Flash
+app.use(
+  session({
+    secret: process.env.SESSION_SECRET,
+    resave: false,
+    saveUninitialized: false,
+  })
+);
+app.use(passport.initialize());
+app.use(passport.session());
+app.use(flash());
+
+// View and Flash Messages Middleware
+app.use((req, res, next) => {
+  res.locals.currentUser = req.user || null;
+  res.locals.success_msg = req.flash("success_msg");
+  res.locals.error_msg = req.flash("error_msg");
+  res.locals.error = req.flash("error");
+  next();
+});
+
