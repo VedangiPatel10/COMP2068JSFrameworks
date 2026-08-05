@@ -19,3 +19,15 @@ connectDB();
 app.set("view engine", "hbs");
 app.set("views", path.join(__dirname, "views"));
 require("hbs").registerPartials(path.join(__dirname, "views", "partials"));
+
+// Handlebars
+const hbs = require("hbs");
+hbs.registerHelper("eq", (a, b) => a === b);
+hbs.registerHelper("formatPrice", (n) => `$${Number(n).toFixed(2)}`);
+
+// Middleware
+app.use(morgan("dev"));
+app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
+app.use(methodOverride("_method")); // lets HTML forms send PUT/DELETE
+app.use(express.static(path.join(__dirname, "public")));
