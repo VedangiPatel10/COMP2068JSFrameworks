@@ -1,3 +1,4 @@
+// Constants
 const express = require("express");
 const path = require("path");
 const morgan = require("morgan");
@@ -10,3 +11,11 @@ const connectDB = require("./config/db");
 require("./config/passport")(passport);
 
 const app = express();
+
+// DataBase connection
+connectDB();
+
+// View engine setup
+app.set("view engine", "hbs");
+app.set("views", path.join(__dirname, "views"));
+require("hbs").registerPartials(path.join(__dirname, "views", "partials"));
