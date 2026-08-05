@@ -53,3 +53,23 @@ app.use((req, res, next) => {
   next();
 });
 
+// Routes
+app.use("/", require("./routes/index"));
+app.use("/auth", require("./routes/auth"));
+app.use("/menu", require("./routes/menu"));
+app.use("/orders", require("./routes/orders"));
+
+// 404 Error Handling
+app.use((req, res) => {
+  res.status(404).render("404", { title: "Not Found" });
+});
+
+// Global Error Handling
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).send("Something went wrong on the server.");
+});
+
+// Start the server
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => console.log(`Server running on http://localhost:${PORT}`));
