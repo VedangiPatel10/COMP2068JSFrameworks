@@ -1,0 +1,39 @@
+<div class="row justify-content-center">
+  <div class="col-md-6">
+    <h1 class="mb-4">New Order</h1>
+    <form action="/orders" method="POST">
+      <div class="mb-3">
+        <label class="form-label">Drink</label>
+        <select name="menuItem" class="form-select" required>
+          <option value="" disabled selected>Select a drink</option>
+          {{#each menuItems}}
+          <option value="{{this._id}}">{{this.name}} ({{formatPrice this.basePrice}})</option>
+          {{/each}}
+        </select>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Size</label>
+        <select name="size" class="form-select">
+          <option>Small</option>
+          <option selected>Medium</option>
+          <option>Large</option>
+        </select>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Milk</label>
+        <select name="milk" class="form-select">
+          <option>Whole</option>
+          <option>Skim</option>
+          <option>Oat</option>
+          <option>Almond</option>
+          <option>None</option>
+        </select>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Extra Shots</label>
+        <input type="number" name="extraShots" class="form-control" value="0" min="0" max="4">
+      </div>
+      <button type="submit" class="btn brand-btn">Place Order</button>
+    </form>
+  </div>
+</div>
