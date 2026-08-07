@@ -1,3 +1,6 @@
+require("dotenv").config(); // forgot to add this line in the previously and was causing 
+// error. Took help from gpt to fit it. 
+
 // Constants
 const express = require("express");
 const path = require("path");
