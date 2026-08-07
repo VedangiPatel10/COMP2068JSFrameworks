@@ -1,44 +1,68 @@
-# The Daily Grind — Coffee Ordering System
+# The Daily Grind – Coffee Ordering System
 
-## Description
-The Daily Grind is a coffee ordering web application for a single coffee shop.
-Customers can browse a public drink menu, register/log in (with local auth or
-GitHub), and place customized orders (size, milk type, extra shots) ahead of
-time to skip the in-store line. Users can view, edit (while still Pending),
-and cancel their own orders.
+## About the Project
 
-## Live Site
+The Daily Grind is a coffee ordering web application for a single coffee shop. Customers can view the menu, create an account or sign in (using a local account or GitHub), and place coffee orders online before arriving at the shop. They can also customize their drinks by choosing the size, milk type, and extra espresso shots. Customers can view, edit, or cancel their orders as long as the order is still marked as **Pending**.
 
+## Live Website
 
-## Tech Stack
-- Node.js / Express
-- MongoDB Atlas / Mongoose
-- HBS (Handlebars) view engine
-- Passport.js (Local + GitHub OAuth strategies)
-- Bootstrap 5 + custom CSS
-- Multer (file uploads)
+https://coffee-ordering-app-assign2.onrender.com
 
-## Additional Feature: Image Upload for Menu Items
-Logged-in users can add a new menu item and upload a photo of the drink
-directly from the "Add Item" page. This uses **multer** middleware to handle
-`multipart/form-data`, validate the file type/size, save it to
-`public/uploads/`, and store the resulting path on the `MenuItem` document.
+## Technologies Used
 
-## Setup Instructions
-1. `npm install`
-2. Copy `.env.example` to `.env` and fill in:
-   - `MONGODB_URI` — your MongoDB Atlas connection string
-   - `SESSION_SECRET` — any random string
-   - `GITHUB_CLIENT_ID` / `GITHUB_CLIENT_SECRET` / `GITHUB_CALLBACK_URL` — from a GitHub OAuth App
-3. `npm run dev` (or `npm start`)
-4. Visit `http://localhost:3000`
+* Node.js
+* Express.js
+* MongoDB Atlas
+* Mongoose
+* Handlebars (HBS)
+* Passport.js (Local and GitHub Authentication)
+* Bootstrap 5
+* Custom CSS
+* Multer (Image Uploads)
 
-## External Code / AI Assistance Disclosure
-Portions of this project's scaffolding (Express/Mongoose setup, Passport
-configuration, and boilerplate CRUD routes/views) were developed with the
-assistance of Claude (Anthropic AI). All code was reviewed, understood, and
-customized by the student. Written approval for AI-assisted code was
-obtained from the instructor via email per course policy.
+## Extra Feature – Upload Images
+
+Users can add new menu items and upload a picture of the drink from the **Add Item** page. The application uses **Multer** to upload the image, check that it is a valid file, save it in the `public/uploads` folder, and store the image path in MongoDB.
+
+## How to Run the Project
+
+1. Install the required packages:
+
+   ```
+   npm install
+   ```
+
+2. Create a `.env` file (or copy `.env.example`) and add:
+
+   * `MONGODB_URI` – Your MongoDB Atlas connection string
+   * `SESSION_SECRET` – Any random secret string
+   * `GITHUB_CLIENT_ID`
+   * `GITHUB_CLIENT_SECRET`
+   * `GITHUB_CALLBACK_URL`
+
+3. Start the application:
+
+   ```
+   npm run dev
+   ```
+
+   or
+
+   ```
+   npm start
+   ```
+
+4. Open your browser and go to:
+
+   ```
+   http://localhost:3000
+   ```
+
+## AI Assistance
+
+Some parts of this project, including the Express setup, MongoDB configuration, Passport authentication, and basic CRUD structure, were created with the help of Claude AI. All generated code was reviewed, tested, and modified by the student. Permission to use AI assistance was approved by the course instructor.
 
 ## Author
-Vedangi Patel — COMP 2068, Group Assignment 2B
+
+**Vedangi Patel**
+COMP 2068 – Group Assignment 2B
