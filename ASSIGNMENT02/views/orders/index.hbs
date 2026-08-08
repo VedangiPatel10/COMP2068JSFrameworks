@@ -1,29 +1,45 @@
 <div class="d-flex justify-content-between align-items-center mb-4">
-  <h1>Our Menu</h1>
-  {{#if currentUser}}
-    <a href="/menu/new" class="btn brand-btn-outline">+ Add Item</a>
-  {{/if}}
+  <h1>My Orders</h1>
+  <a href="/orders/new" class="btn brand-btn">+ New Order</a>
 </div>
 
-{{#if items.length}}
-<div class="row g-4">
-  {{#each items}}
-  <div class="col-md-4">
-    <div class="card menu-card h-100">
-      <img src="{{this.imagePath}}" class="card-img-top" alt="{{this.name}}">
-      <div class="card-body">
-        <span class="badge bg-secondary mb-2">{{this.category}}</span>
-        <h5 class="card-title">{{this.name}}</h5>
-        <p class="card-text text-muted">{{this.description}}</p>
-        <p class="fw-bold">{{formatPrice this.basePrice}}</p>
-        {{#if ../currentUser}}
-          <a href="/orders/new" class="btn brand-btn btn-sm">Order This</a>
-        {{/if}}
-      </div>
-    </div>
-  </div>
-  {{/each}}
+{{#if orders.length}}
+<div class="table-responsive">
+  <table class="table align-middle">
+    <thead>
+      <tr>
+        <th>Drink</th>
+        <th>Size</th>
+        <th>Milk</th>
+        <th>Extra Shots</th>
+        <th>Price</th>
+        <th>Status</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each orders}}
+      <tr>
+        <td>{{this.menuItem.name}}</td>
+        <td>{{this.size}}</td>
+        <td>{{this.milk}}</td>
+        <td>{{this.extraShots}}</td>
+        <td>{{formatPrice this.totalPrice}}</td>
+        <td><span class="badge status-{{this.status}}">{{this.status}}</span></td>
+        <td class="text-end">
+          {{#if (eq this.status "Pending")}}
+          <a href="/orders/{{this._id}}/edit" class="btn btn-sm brand-btn-outline">Edit</a>
+          {{/if}}
+          <form action="/orders/{{this._id}}?_method=DELETE" method="POST" class="d-inline"
+                onsubmit="return confirm('Cancel this order?');">
+            <button type="submit" class="btn btn-sm btn-outline-danger">Cancel</button>
+          </form>
+        </td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
 </div>
 {{else}}
-<p class="text-muted">No menu items yet. {{#if currentUser}}<a href="/menu/new">Add the first one</a>.{{/if}}</p>
+<p class="text-muted">You have no orders yet. <a href="/orders/new">Place your first order</a>.</p>
 {{/if}}
